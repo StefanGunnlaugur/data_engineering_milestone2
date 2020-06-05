@@ -92,8 +92,6 @@ def subsets_eq_k(A,K):
     return subsets
 
 
-
-
 def reduce_mapping_pearson(x):
   def pearson(data1, data2):
     name1_1 = data1[1][0]

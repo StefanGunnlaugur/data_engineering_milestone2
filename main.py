@@ -25,11 +25,10 @@ import functools
 
 
 #import functions
-from functions import subsets_leq_k, subsets_eq_k, reduce_mapping_total, reduce_mapping_pearson, get_data, generate_data
+from functions import subsets_leq_k, subsets_eq_k, get_data, generate_data
 from aggregation import calculate_max, calculate_min, calculate_average
 from correlation import pearson, total_correlation
-from calculations import milestone_2
-
+from calculations import milestone_calculations
 
 
 if __name__ == '__main__':
@@ -41,7 +40,8 @@ if __name__ == '__main__':
     aggregation = [calculate_max, calculate_min, calculate_average]
     correlation = correlations[0]
     number_of_p = 3
-    result = milestone_2(calculate_average, correlation[1], number_of_p, data, sc, correlation[0])
+    milestone_calc = milestone_calculations()
+    result = milestone_calc.milestone_2(calculate_average, correlation[1], correlation[0], data, number_of_p, sc, spark)
 
 
 
