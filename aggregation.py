@@ -7,7 +7,7 @@ def calculate_max(x):
     for i in range(length):
         names.append(x[i][0])
         lists.append(x[i][1])
-    max_list = list(map(max, *x))
+    max_list = list(map(max, *lists))
     final_name = ""
     for name in names:
       if final_name == "":
@@ -24,7 +24,7 @@ def calculate_min(x):
     for i in range(length):
         names.append(x[i][0])
         lists.append(x[i][1])
-    min_list = list(map(min, *x))
+    min_list = list(map(min, *lists))
     final_name = ""
     for name in names:
       if final_name == "":
