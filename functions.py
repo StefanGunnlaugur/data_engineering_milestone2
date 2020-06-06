@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import pyspark.sql.functions as F
 from pyspark.sql import Row
+import random
 
 def save_obj(obj, name ):
     with open(name + '.pkl', 'wb') as f:
@@ -13,7 +14,7 @@ def load_obj(name ):
     with open(name + '.pkl', 'rb') as f:
         return pickle.load(f)
 
-def generate_data(spark, size):
+def generate_data(spark):
     df = pd.read_pickle("data_milestone2_raw.pkl")
 
     dataframes = []
@@ -30,11 +31,14 @@ def generate_data(spark, size):
 
     tuple_list = []
     for name, value in pandas_subset:
-        tuple_list.append((name, value))
+        if "forex" not in name.lower(): 
+            tuple_list.append((name, value))
 
-    return tuple_list
+    #save_obj(tuple_list, 'data_milestone2')
 
-def get_data(size = 500):
+
+def get_data(size = 500, rand=True, seed=1):
+    random.seed(seed)
     data = pd.read_pickle("data_milestone2.pkl")
     data_len = len(data)
     if size > data_len:
@@ -42,8 +46,13 @@ def get_data(size = 500):
         return data
     if size < 1:
         print("Selected size too small, giving you 10 companies")
+        if rand:
+            sub = random.sample(data, 10)
+            return sub
         return data[:10]
 
+    if rand:
+        return random.sample(data,size)
     return data[:size]
 
 def subsets_leq_k(A,K):

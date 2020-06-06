@@ -64,7 +64,7 @@ class milestone_calculations:
             for i in range(1, len(subsets)):
                 n = math.ceil(sys.getsizeof(subsets[i]) / 1024)
                 #temp = sc.parallelize(spark.createDataFrame(subsets[i]).rdd.flatMap(lambda x: (aggregation(x))).collect(),2).collect()
-                temp = sc.parallelize(subsets[i], n).flatMap(aggregation).collect()
+                temp = sc.parallelize(subsets[i]).flatMap(aggregation).collect()
                 pair_averages.append(temp)
             partition = int(len(subsets[0]) * len(subsets[1]) / 5)
 
@@ -93,7 +93,7 @@ class milestone_calculations:
             print("Distributing to workers and reducing pairs...")
             start = time.time()
             n = math.ceil(sys.getsizeof(all_combinations) / 1024)
-            res = sc.parallelize(all_combinations, n)
+            res = sc.parallelize(all_combinations)
             res = res.flatMap(lambda x: self.reduce_mapping_pearson(x)).filter(lambda line: abs(line[1][0]) >= 0.9).sortBy(lambda line: -line[1][0]).take(10)
             end = time.time()
             print("Time elapsed --> {}sek".format(round(end-start, 3)))

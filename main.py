@@ -36,14 +36,13 @@ if __name__ == '__main__':
     spark = SparkSession.builder.master("local[*]").config("spark.driver.memory", "12g").config("spark.executor.memory", "1g").getOrCreate()
     conf = SparkConf().setAppName("miniProject").setMaster("local[*]")
     sc = SparkContext.getOrCreate(conf)
-    data = get_data(20)
+    #generate_data(spark)
+    data = get_data(50)
     correlations = [('pearson', pearson), ('total_correlation', total_correlation)]
     aggregation = [calculate_max, calculate_min, calculate_average]
     correlation = correlations[0]
     number_of_p = 3
     milestone_calc = milestone_calculations()
     result = milestone_calc.milestone_2(calculate_average, correlation[1], correlation[0], data, number_of_p, sc, spark)
-
-
 
       
