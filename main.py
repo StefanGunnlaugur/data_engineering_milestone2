@@ -9,7 +9,6 @@ import pyspark
 from pyspark.sql import SparkSession
 from pyspark import SparkContext,SparkConf
 from pyspark.sql.types import *
-
 #setup imports
 '''
 import pyspark.sql.functions as F
@@ -36,12 +35,15 @@ if __name__ == '__main__':
     spark = SparkSession.builder.master("local[*]").config("spark.driver.memory", "12g").config("spark.executor.memory", "1g").getOrCreate()
     conf = SparkConf().setAppName("miniProject").setMaster("local[*]")
     sc = SparkContext.getOrCreate(conf)
-    #generate_data(spark)
-    data = get_data(50)
+    nr_stocks = input('Choose number of stocks to compute correlations:')
+    data = get_data(int(nr_stocks))
+    corr_idx = input('Choose correlation method, 0:Pearson - 1:Total')
+    #agg_idx = input('Choose aggregation method, 0:Max - 1:Min - 2:Avg')
     correlations = [('pearson', pearson), ('total_correlation', total_correlation)]
     aggregation = [calculate_max, calculate_min, calculate_average]
-    correlation = correlations[0]
-    number_of_p = 3
+    correlation = correlations[int(corr_idx)]
+    p = input('Choose p>=3:')
+    number_of_p = int(p)
     milestone_calc = milestone_calculations()
     result = milestone_calc.milestone_2(calculate_average, correlation[1], correlation[0], data, number_of_p, sc, spark)
 
