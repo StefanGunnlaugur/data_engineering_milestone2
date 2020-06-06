@@ -2,6 +2,10 @@ from scipy.stats.stats import pearsonr
 import numpy as np
 import math
 from scipy import stats
+from sklearn import preprocessing
+import pandas as pd
+from dit import Distribution
+from dit.multivariate import total_correlation as T
 
 def pearson(data1, data2):
   name1_1 = data1[0]
@@ -11,20 +15,14 @@ def pearson(data1, data2):
 
 def total_correlation(Xs):
     pmf = []
+    Xs = np.asarray(Xs)
     for stock in range(len(Xs)):
-        a = stats.binom.pmf(Xs[stock], 10, 0.5)
-        pmf.append(a)
-    pmf = np.asarray(pmf) 
-
-    numBins = 5
-    b = []
-    for stock in range(len(Xs)):
-        jointProbs, edges = np.histogramdd(Xs[stock], bins=numBins)
-        b.append(jointProbs)
-
-    jointProbs /= jointProbs.sum()
-
-    a = jointProbs * (np.log(jointProbs / np.prod(pmf)))
-    total_correlation = a.sum()
-
-    return total_correlation
+      s = pd.Series(Xs[stock])
+      b = (s.groupby(s).transform('count') / len(s)).values
+      pmf.append(b)
+    pmf = np.asarray(pmf)
+    pmf /= pmf.sum()
+    custm = stats.rv_discrete(name='custm', values=(Xs, pmf))
+    d = Distribution.from_ndarray(pmf)
+    t = T(d)
+    return t

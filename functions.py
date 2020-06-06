@@ -2,6 +2,8 @@ from correlation import total_correlation
 import pickle
 import pandas as pd
 import numpy as np
+import pyspark.sql.functions as F
+from pyspark.sql import Row
 
 def save_obj(obj, name ):
     with open(name + '.pkl', 'wb') as f:
