@@ -110,3 +110,7 @@ def reduce_mapping_pearson(x):
     return (pearsonr(data1[1][1],data2[1][1]), name1_1 + " X " + name2_1)
   
   return [functools.reduce(pearson, group) for _, group in groupby(sorted(x), key=itemgetter(0))]
+
+def pretty_print_results(results):
+    for i in results:
+        print(i)

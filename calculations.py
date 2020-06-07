@@ -33,13 +33,13 @@ class milestone_calculations:
         res = list(map(correlation, ind_to_map))
         return res
 
-    def milestone_2(self, aggregation, aggregation_method, correlation, correlation_method, data, p, sc, spark):
+    def compute_correlation(self, aggregation, aggregation_method, correlation, correlation_method, data, p, sc, spark, partition=500):
         print()
         if correlation_method == 'total_correlation':
             self.total_correlation = correlation
             print("Creating pairs...")
             subsets = subsets_eq_k(data,p)
-            partition = 200#int(len(subsets) / 5)
+            #partition = 200#int(len(subsets) / 5)
             print("Pairs created....moving on....")
             all_combinations = [[] for i in range(partition)]
             for i in range(len(subsets)):
@@ -54,7 +54,7 @@ class milestone_calculations:
             res = res.flatMap(lambda x: self.reduce_mapping_total(x)).filter(lambda line: abs(line[1]) >= 0.1).sortBy(lambda line: -line[1]).take(10)
             end = time.time()
             print("Time elapsed --> {}sek".format(round(end-start, 3)))
-            print(res)
+            #print(res)
             return res
         
         elif correlation_method == 'pearson':
@@ -67,7 +67,7 @@ class milestone_calculations:
                 temp = sc.parallelize(subsets[i]).flatMap(aggregation).collect()
                 pair_averages.append(temp)
             comparison_count = (((len(subsets[0]) * len(subsets[0])) - len(subsets[0]))/2) * len(subsets[0])
-            partition = 500#int(len(subsets[0]) * len(subsets[1]) / 5)
+            #partition = 500#int(len(subsets[0]) * len(subsets[1]) / 5)
             print("Pairs created... moving on...")
             t = 0
             all_combinations = [[] for i in range(partition)]
@@ -98,7 +98,7 @@ class milestone_calculations:
             res = res.flatMap(lambda x: self.reduce_mapping_pearson(x)).filter(lambda line: abs(line[1][0]) >= 0.9).sortBy(lambda line: -line[1][0]).take(10)
             end = time.time()
             print("Time elapsed --> {}sek".format(round(end-start, 3)))
-            print(res)
+            #print(res)
             return res
         else:
             print("Select a valid correlation method")
