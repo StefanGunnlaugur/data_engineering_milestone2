@@ -18,7 +18,7 @@ class milestone_calculations:
             name2_1 = data2[1]
             value1 = self.array_dict[data1[0]][0]
             value2 = self.array_dict[data1[0]][1]
-            return (name1_1 + " X " + name2_1, pearsonr(value1,value2))
+            return ("{} X {}".format(name1_1, name2_1), pearsonr(value1,value2))
         return [functools.reduce(pearson, group) for _, group in groupby(sorted(x), key=itemgetter(0))]
 
     def reduce_mapping_total(self, ind_to_map):
@@ -26,7 +26,7 @@ class milestone_calculations:
             lists = [el[1] for el in self.array_dict[companies]]
             names = [el[0] for el in self.array_dict[companies]]
             correlation = self.total_correlation(lists)
-            name = ' + '.join(names)
+            name = ' X '.join(names)
             res = (name, correlation)
             return res
             

@@ -52,8 +52,8 @@ if __name__ == '__main__':
     else:
         nr_stocks = 30
         p = 3
-        corr_idx = 1
-        agg_idx = 3
+        corr_idx = 0
+        agg_idx = 2
         data = get_data(int(nr_stocks))
         correlations = [('pearson', pearson), ('total_correlation', total_correlation)]
         aggregation = [("Max", calculate_max), ("Min", calculate_min), ("Average", calculate_average), ("Identity", None)]
