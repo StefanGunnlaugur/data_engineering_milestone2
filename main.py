@@ -18,7 +18,7 @@ from calculations import milestone_calculations
 
 
 if __name__ == '__main__':
-    spark = SparkSession.builder.master("local[*]").config("spark.driver.memory", "12g").config("spark.driver.maxResultSize","2g").config("spark.executor.memory", "1g").getOrCreate()
+    spark = SparkSession.builder.master("local[*]").config("spark.driver.memory", "29g").config("spark.driver.maxResultSize","2g").config("spark.executor.memory", "29g").getOrCreate()
     conf = SparkConf().setAppName("miniProject").setMaster("local[*]")
     sc = SparkContext.getOrCreate(conf)
     take_input = True
