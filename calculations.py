@@ -39,7 +39,6 @@ class milestone_calculations:
             self.total_correlation = correlation
             print("Creating pairs...")
             subsets = subsets_eq_k(data,p)
-            #partition = 200#int(len(subsets) / 5)
             print("Pairs created....moving on....")
             all_combinations = [[] for i in range(partition)]
             for i in range(len(subsets)):
@@ -51,10 +50,9 @@ class milestone_calculations:
             print("Distributing to workers and reducing pairs...")
             start = time.time()
             res = sc.parallelize(all_combinations)
-            res = res.flatMap(lambda x: self.reduce_mapping_total(x)).filter(lambda line: abs(line[1]) >= 0.1).sortBy(lambda line: -line[1]).take(10)
+            res = res.flatMap(lambda x: self.reduce_mapping_total(x)).filter(lambda line: abs(line[1]) >= 0.19).sortBy(lambda line: -line[1]).take(10)
             end = time.time()
             print("Time elapsed --> {}sek".format(round(end-start, 3)))
-            #print(res)
             return res
         
         elif correlation_method == 'pearson':
@@ -62,12 +60,11 @@ class milestone_calculations:
             pair_averages = [subsets[0]]
             print("Creating pairs...")
             for i in range(1, len(subsets)):
-                n = math.ceil(sys.getsizeof(subsets[i]) / 1024)
-                #temp = sc.parallelize(spark.createDataFrame(subsets[i]).rdd.flatMap(lambda x: (aggregation(x))).collect(),2).collect()
-                temp = sc.parallelize(subsets[i]).flatMap(aggregation).collect()
+                #n = math.ceil(sys.getsizeof(subsets[i]) / 1024)
+                temp = sc.parallelize(spark.createDataFrame(subsets[i]).rdd.flatMap(lambda x: (aggregation(x))).collect()).collect()
                 pair_averages.append(temp)
             comparison_count = (((len(subsets[0]) * len(subsets[0])) - len(subsets[0]))/2) * len(subsets[0])
-            #partition = 500#int(len(subsets[0]) * len(subsets[1]) / 5)
+            partition = int(comparison_count / 2800)
             print("Pairs created... moving on...")
             t = 0
             all_combinations = [[] for i in range(partition)]
@@ -93,12 +90,10 @@ class milestone_calculations:
             print("Distributing to workers and reducing pairs...")
             start = time.time()
             n = math.ceil(sys.getsizeof(all_combinations) / 1024)
-            self.reduce_mapping_pearson(all_combinations[0])
             res = sc.parallelize(all_combinations)
             res = res.flatMap(lambda x: self.reduce_mapping_pearson(x)).filter(lambda line: abs(line[1][0]) >= 0.9).sortBy(lambda line: -line[1][0]).take(10)
             end = time.time()
             print("Time elapsed --> {}sek".format(round(end-start, 3)))
-            #print(res)
             return res
         else:
             print("Select a valid correlation method")

@@ -38,7 +38,8 @@ Number of stocks = 20, p=4, PEARSON correlation, 48450 comparisons:
     ('Paris_SCR -> NYSE_JNPR -> NYSE_AES X Tokio_4519', (0.916395053428673))
 
 
-Number of stocks = 500, p=3, PEARSON correlation,  comparisons:
+Number of stocks = 500, p=3, PEARSON correlation, 62125500 comparisons:
+
 
 Number of stocks = 200, p=4, PEARSON correlation,  comparisons:
 
