@@ -1,4 +1,4 @@
-Number of stocks = 30, p=3, TOTAL correlation, 4060 comparisons, 1492.602sek=24min on mac2015:
+Number of stocks = 30, p=3, TOTAL correlation, 4060 comparisons:
     ('NYSE-American_JOB X Madrid_FCC X Tokio_8331', 0.21987934740469584)
     ('Tokio_4041 X Sydney_DWS X Sydney_SGP', 0.21915292697199185)
     ('NYSE-American_JOB X Tokio_4519 X Tokio_8331', 0.21557885436830126)
@@ -22,24 +22,79 @@ Number of stocks = 30, p=3, PEARSON correlation, 12180 comparisons:
     ('NYSE_FTI X Sydney_PXS -> NYSE_NBR', (0.9389238134777531))
     ('NYSE_FTI -> Sydney_PXS X NYSE_NBR', (0.937774344710995))
 
-Number of stocks = 20, p=4, TOTAL correlation, :
-
+Number of stocks = 20, p=4, TOTAL correlation, 4845 comparisons: 
+    ('Tokio_4041 X Sydney_DWS X Madrid_FCC X Sydney_SGP', 0.24590527907335513)
+    ('NYSE-American_JOB X Tokio_4041 X Sydney_DWS X Sydney_SGP', 0.24576955653505905)
+    ('NYSE-American_JOB X Sydney_DWS X Madrid_FCC X Sydney_SGP', 0.24213431258213625)
+    ('NYSE-American_JOB X Tokio_4041 X Madrid_FCC X Sydney_SGP', 0.2419521459941958)
+    ('Tokio_4519 X Tokio_4041 X Sydney_DWS X Sydney_SGP', 0.24141042858011907)
+    ('NYSE-American_JOB X Tokio_4041 X Sydney_DWS X Madrid_FCC', 0.24128688146621435)
+    ('NYSE-American_JOB X Tokio_4519 X Tokio_4041 X Sydney_DWS', 0.23893509624231335)
+    ('Tokio_4041 X Sydney_DWS X NYSE_AES X Sydney_SGP', 0.23887242014317778)
+    ('NYSE-American_JOB X Tokio_4519 X Tokio_4041 X Sydney_SGP', 0.2388712171693239)
+    ('NYSE-American_JOB X Tokio_4519 X Sydney_DWS X Sydney_SGP', 0.2387092199880012)
+    Time: 803.682sek
 
 Number of stocks = 20, p=4, PEARSON correlation, 48450 comparisons:
-    ('Paris_SCR -> Madrid_FCC -> NYSE_AES X Tokio_4519', (0.9310461916139822))
-    ('London_SMIN -> Paris_SCR -> NYSE_AES X Tokio_4519', (0.9291895834890423))
-    ('Paris_SCR -> Madrid_FCC X Tokio_4519 -> Tokio_7752', (0.9193503548318764))
-    ('Paris_SCR -> Madrid_FCC X Tokio_4519 -> Tokio_7752', (0.9193503548318764)
-    ('Paris_SCR -> NYSE_AES X Tokio_4519 -> Tokio_7752', (0.918827973833678))
-    ('Paris_SCR -> NYSE_AES X Tokio_4519 -> Tokio_7752', (0.918827973833678))
-    ('London_SMIN -> Paris_SCR -> Madrid_FCC X Tokio_4519', (0.9168275787153635))
-    ('London_UU_ -> Paris_SCR -> NYSE_AES X Tokio_4519', (0.9166664203532956))
-    ('London_UU_ -> Paris_SCR -> Madrid_FCC X Tokio_4519', (0.9165606142122584))
-    ('Paris_SCR -> NYSE_JNPR -> NYSE_AES X Tokio_4519', (0.916395053428673))
+('Paris_SCR -> Madrid_FCC -> NYSE_AES X Tokio_4519', (0.9310461916139822))
+('London_SMIN -> Paris_SCR -> NYSE_AES X Tokio_4519', (0.9291895834890423))
+('Paris_SCR -> Madrid_FCC X Tokio_4519 -> Tokio_7752', (0.9193503548318764))
+('Paris_SCR -> Madrid_FCC X Tokio_4519 -> Tokio_7752', (0.9193503548318764)
+('Paris_SCR -> NYSE_AES X Tokio_4519 -> Tokio_7752', (0.918827973833678))
+('Paris_SCR -> NYSE_AES X Tokio_4519 -> Tokio_7752', (0.918827973833678))
+('London_SMIN -> Paris_SCR -> Madrid_FCC X Tokio_4519', (0.9168275787153635))
+('London_UU_ -> Paris_SCR -> NYSE_AES X Tokio_4519', (0.9166664203532956))
+('London_UU_ -> Paris_SCR -> Madrid_FCC X Tokio_4519', (0.9165606142122584))
+('Paris_SCR -> NYSE_JNPR -> NYSE_AES X Tokio_4519', (0.916395053428673))
+
+Number of stocks = 10, p=4, TOTAL correlation, 210 comparisons:
+('London_UU_ X NYSE-American_JOB X Tokio_4519 X Tokio_4041', 0.22399121988084403)
+('NYSE-American_JOB X Tokio_4519 X Tokio_4041 X Tokio_7752', 0.22033942521942151)
+('NYSE-American_JOB X Tokio_4519 X Tokio_4041 X Mailand_MS', 0.2156490658459589)
+('London_SMIN X NYSE-American_JOB X Tokio_4519 X Tokio_4041', 0.2124043225297516)
+('NYSE_CAT X NYSE-American_JOB X Tokio_4519 X Tokio_4041', 0.21069029975826759)
+('NYSE-American_JOB X Tokio_4519 X Tokio_4041 X Stockholm_SWMA', 0.20948166100035337)
+('NYSE-American_JOB X Tokio_4519 X Tokio_4041 X NYSE_FTI', 0.20771247373549606)
+('London_UU_ X NYSE-American_JOB X Tokio_4041 X Tokio_7752', 0.2060108633423834)
+('London_UU_ X NYSE-American_JOB X Tokio_4519 X Tokio_7752', 0.20532269035870598)
+('London_UU_ X NYSE-American_JOB X Tokio_4041 X Mailand_MS', 0.19908095400341708)
 
 
-Number of stocks = 500, p=3, PEARSON correlation, 62125500 comparisons:
+Number of stocks = 200, p=3, PEARSON correlation,  comparisons:3940200
+('CBOT-mini_YM X Sydney_PXS->NYSE_DIA', (0.9978746389142344, 0.0))
+('NASDAQ_PDCO->CBOT-mini_YM X NYSE_DIA', (0.9978726602210094, 0.0))
+('NYSE_DIA X NYSE_IR->CBOT-mini_YM', (0.9978726291952813, 0.0))
+('NYSE_CB->CBOT-mini_YM X NYSE_DIA', (0.9978696024914553, 0.0))
+('NYSE_CPB->CBOT-mini_YM X NYSE_DIA', (0.9978681614153785, 0.0))
+('NYSE_DIA X Paris_SCR->CBOT-mini_YM', (0.9978662843653643, 0.0))
+('NYSE_CCI->CBOT-mini_YM X NYSE_DIA', (0.9978644455259706, 0.0))
+('NYSE_DIA X NYSE_USB->CBOT-mini_YM', (0.9978639666200037, 0.0))
+('London_AVV->CBOT-mini_YM X NYSE_DIA', (0.9978638803279019, 0.0))
+('NYSE_DIA X NYSE_DUK->CBOT-mini_YM', (0.9978633314580627, 0.0))
+
+Number of stocks = 50, p=4, PEARSON correlation,  comparisons: 2303000
+('London_AV_ X Mailand_MS->Sydney_PXS->London_SMDS', (0.9785672867810968, 2.077043631730359e-246))
+('London_SMDS->London_AV_ X London_SMIN->NYSE_NBR', (0.9785032154637536, 3.513346090441486e-246))
+('London_SMDS->London_AV_ X London_SMIN->NYSE_NBR', (0.9785032154637536, 3.513346090441486e-246))
+('Mailand_MS->London_SMDS X Sydney_PXS->London_AV_', (0.9781575989502277, 5.825748959948963e-245))
+('Mailand_MS->London_SMDS X Sydney_PXS->London_AV_', (0.9781575989502277, 5.825748959948963e-245))
+('NYSE_FTI->NASDAQ_FITB X NYSE_NBR->London_AV_', (0.9775162968234248, 9.49682463987629e-243))
+('NYSE_FTI->NASDAQ_FITB X NYSE_NBR->London_AV_', (0.9775162968234248, 9.49682463987629e-243))
+('London_AV_ X London_SMIN->NYSE_FTI->NASDAQ_FITB', (0.9770992956865066, 2.410332492416069e-241))
+('London_AV_ X Mailand_MS->Sydney_SGP->London_SMDS', (0.9757499769907529, 5.695967799564771e-237))
+('London_AV_ X Mailand_MS->Sydney_DWS->London_SMDS', (0.9750001889296764, 1.203735091715912e-234))
 
 
-Number of stocks = 200, p=4, PEARSON correlation,  comparisons:
 
+
+Number of stocks = 150, p=3, PEARSON correlation,  comparisons: 1653900
+('London_AV_ X Mailand_MS->London_SMDS', (0.9785358293004198, 2.689115193489384e-246))
+('Lissabon_SON X NASDAQ_FITB->NYSE-American_CMT', (0.9771120507650582, 2.1852521494234554e-241))
+('NYSE-American_VOO-IV X Sydney_LLC->NYSE_DIA', (0.9768487794833652, 1.6347494549329917e-240))
+('Lissabon_SON X NYSE_NBR->NYSE-American_CMT', (0.975254926609169, 1.9890595615972042e-235))
+('Lissabon_SON X NYSE-American_CMT->Amsterdam_MT', (0.9732939124994974, 1.3132953148856174e-229))
+('Lissabon_SON X London_GLEN->Athen_PPC', (0.972739177503718, 4.854895740602746e-228))
+('London_AV_ X London_SMDS->Oslo_REC', (0.9720137089161837, 4.879845744432214e-226))
+('London_AV_ X London_SMDS->Lissabon_SON', (0.9711350089117871, 1.10709672808403e-223))
+('Lissabon_SON X NYSE-American_CMT->Sydney_MMS', (0.9700993547639557, 5.358516871969968e-221))
+('Lissabon_SON X NYSE-American_CMT->London_SMDS', (0.9693155558820382, 4.9996848467752966e-219))
